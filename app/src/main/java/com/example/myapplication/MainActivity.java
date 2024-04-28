@@ -20,6 +20,7 @@ import com.example.myapplication.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String res = pythonCall("hello_world","rand");
-                Snackbar.make(view, res, Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
+                View v = findViewById(R.id.nav_host_fragment_content_main);
+                TextView tv = v.findViewById(R.id.textview_first);
+                tv.setText(res);
             }
         });
     }
